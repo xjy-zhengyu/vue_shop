@@ -52,7 +52,7 @@ export default {
         if (!valid) {
           return
         } // valid是否为true
-        const { data: res } = await this.$axios.post('login', this.loginForm)
+        const { data: res } = await this.$http.post('login', this.loginForm)
         if (res.meta.status !== 200) { // 判断状态码，200为登录成功
           return this.$message.error('登陆失败')
         } else {

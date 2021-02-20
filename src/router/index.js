@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
@@ -15,27 +15,32 @@ const routes = [{
 {
   path: '/home',
   name: 'Home',
-  component: resolve => require(['@/components/Home.vue'], resolve)
+  component: resolve => require(['@/components/Home.vue'], resolve),
+  redirect: '/welcome',
+  children: [
+    { path: '/welcome', component: resolve => require(['@/components/Welcome.vue'], resolve) },
+    { path: '/users', component: resolve => require(['@/components/user/Users.vue'], resolve) }
+  ]
 }
-];
+]
 
 const router = new VueRouter({
   routes
-});
+})
 
 // 路由导航首位，控制访问页面权限
 router.beforeEach((to, from, next) => {
   // to 将要访问的路径
   // from 从哪个路径跳转来
   // next 是一个函数，next()表示放行。next('/login')强制跳转
-  const tokenStr = window.sessionStorage.getItem('token');
+  const tokenStr = window.sessionStorage.getItem('token')
   if (to.path === '/login') {
-    return next();
+    return next()
   } else if (!tokenStr) {
-    return next('/login');
+    return next('/login')
   } else {
-    next();
+    next()
   }
-});
+})
 
-export default router;
+export default router
