@@ -245,7 +245,7 @@ export default {
       })
     },
     async showEditDialog (id) {
-      const { data: res } = await this.$http('users/' + id)
+      const { data: res } = await this.$http.get('users/' + id)
       if (res.meta.status !== 200) {
         this.$message.error('查询用户信息失败!')
       } else {
