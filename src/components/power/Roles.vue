@@ -159,10 +159,8 @@ export default {
       const { data: res } = await this.$http.get('roles')
       if (res.meta.status !== 200) {
         return this.$message.error('获取角色列表失败')
-      } else {
-        this.rolelist = res.data
-        console.log(this.rolelist)
       }
+      this.rolelist = res.data
     },
     // 关闭窗口重置input数据
     addDialogClose () {
@@ -184,7 +182,7 @@ export default {
     },
     // 编辑时，查询用户信息
     async showEditRoleDialog (id) {
-      const { data: res } = await this.$http('roles/' + id)
+      const { data: res } = await this.$http.get('roles/' + id)
       if (res.meta.status !== 200) {
         this.$message.error('查询用户信息失败!')
       } else {
@@ -201,11 +199,10 @@ export default {
         if (!valid) return
         const { data: res } = await this.$http.put('roles/' + this.editRoleForm.roleId, { roleName: this.editRoleForm.roleName, roleDesc: this.editRoleForm.roleDesc })
         if (res.meta.status !== 200) {
-          this.$message.error('更新角色信息失败!')
-        } else {
-          this.getRolesList()
-          this.$message.success('更新角色信息成功')
+          return this.$message.error('更新角色信息失败!')
         }
+        this.$message.success('更新角色信息成功')
+        this.getRolesList()
         this.editRoleVisible = false
       })
     },

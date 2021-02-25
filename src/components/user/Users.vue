@@ -261,11 +261,10 @@ export default {
         if (!valid) return
         const { data: res } = await this.$http.put('users/' + this.editForm.id, { email: this.editForm.email, mobile: this.editForm.mobile })
         if (res.meta.status !== 200) {
-          this.$message.error('更新用户信息失败!')
-        } else {
-          this.getUserList()
-          this.$message.success('更新用户信息成功')
+          return this.$message.error('更新用户信息失败!')
         }
+        this.getUserList()
+        this.$message.success('更新用户信息成功')
         this.editDialogVisible = false
       })
     },

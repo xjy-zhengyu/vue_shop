@@ -22,7 +22,8 @@ const routes = [{
     { path: '/users', component: resolve => require(['@/components/user/Users.vue'], resolve) },
     { path: '/rights', component: resolve => require(['@/components/power/Rights.vue'], resolve) },
     { path: '/roles', component: resolve => require(['@/components/power/Roles.vue'], resolve) },
-    { path: '/categories', component: resolve => require(['@/components/goods/Cate.vue'], resolve) }
+    { path: '/categories', component: resolve => require(['@/components/goods/Cate.vue'], resolve) },
+    { path: '/params', component: resolve => require(['@/components/goods//Params.vue'], resolve) }
   ]
 }
 ]
