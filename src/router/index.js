@@ -26,7 +26,8 @@ const routes = [{
     { path: '/params', component: resolve => require(['@/components/goods/Params.vue'], resolve) },
     { path: '/goods', component: resolve => require(['@/components/goods/List.vue'], resolve) },
     { path: '/goods/add', component: resolve => require(['@/components/goods/Add.vue'], resolve) },
-    { path: '/orders', component: resolve => require(['@/components/order/Order.vue'], resolve) }
+    { path: '/orders', component: resolve => require(['@/components/order/Order.vue'], resolve) },
+    { path: '/reports', component: resolve => require(['@/components/report/Report.vue'], resolve) }
   ]
 }
 ]
