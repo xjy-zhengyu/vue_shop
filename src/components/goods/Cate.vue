@@ -48,7 +48,7 @@
 				<el-form-item label="父级分类:">
 					<!-- options数据源，props:配置选项 ,v-model:已选择父级分类的，只能是数组-->
 					<el-cascader v-model="selectedKeys" :options="parentCateList" :props="cascaderProps"
-						@change="parentCateChange" clearable>
+					@change="parentCateChange" clearable>
 					</el-cascader>
 				</el-form-item>
 			</el-form>
